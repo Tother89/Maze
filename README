@@ -1,0 +1,42 @@
+Dallin Toth
+ID# 122371
+LBL EA2
+Project: Random Maze Generator
+December 4, 2014
+
+The wiring for this project is the standard wiring used for the joystick and LCD display we have used in the past. I will repeat it so we are on the same page.
+
+// Joystick pins:
+#define JOYSTICK_HOR 0   // Analog input A0 - horizontal
+#define JOYSTICK_VER 1   // Analog input A1 - vertical
+#define JOYSTICK_SEL 9  // Digital input pin 9 for the button
+
+// Display pins:
+// standard U of A library settings, assuming Atmel Mega SPI pins
+#define SD_CS    5 // Chip select line for SD card
+#define TFT_CS   6 // Chip select line for TFT display
+#define TFT_DC   7 // Data/command line for TFT
+#define TFT_RST  8 // Reset Line for TFT (or connect to +5V)
+
+
+To cover a few things I would like to start off by saying that I did this all own my own without a partner. I had Ross Ying as a partner but he did not contribute whatsoever to this project and I have ended up taking it into my own hands and doing as much as possible by myself the past few days. 
+
+That said, I am please to give you MAZ-O-RAMA the maze where everytime you play its a brand new never before seen maze! Each time you play you get a randomly generated maze. The algorithm for this maze was found on this website:
+
+http://weblog.jamisbuck.org/2011/2/1/maze-generation-binary-tree-algorithm
+
+No code was used or even studied! All I did was look at what the basics of this solution was and followed the recipie. All that you need to do is iterate through each block on a grid and choose to make either a south wall or an east wall. Doesn't matter which way you choose it just as long as you follow your pattern. Once you are done you should have a solvable maze. My particular design is made so that you can enter that maze at any side and your goal to get to the center.
+
+So far I've been pretty sure that there always exists a path to the center. Some features I included were to make the maze harder or easier depending on users choice. I have three difficulties: easy, medium, and hard. Each one splits up the blocks into increasing smaller blocks as it gets harder making the program build more lines in less space. Easy is extremely easy haha but hard is quite challenging.
+
+Now to go on to the problems with my code.
+
+As I stated earlier I did all this with virtually no help and little time so its quite bug. HUGE BUG is that you can go through walls and erase them. I spent several hours trying to fix this to no avail. I have commented heavily on this subject in my build_grid function and in my hit_wall function. They explain more about what I was trying to do. Basically it comes down to not being able to store and compare the locations of the walls with the location of my cursor. I know I was close but didn't quite make it.
+
+I have it set up so that if you hit a wall you would be return to the start (top left corner) and have to do it over again. Of course the actually "maze" walls themselves aren't set up since I could not find the solution to this but thats the point of the game. Next you should play until you reach the end where you will be congratulated and asked to play again. Still my program does not do this its just theorhetical on my end and in no way whatsoever should you expect the program to do this. I have written in a finish function but it doesn't work since I spent too much time trying to fix more important issues. 
+
+Other than all that should be good to go.
+
+This is the fixed version with less bugs. The wall hitting function works now and I am able to store the values of my wall locations.
+
+Enjoy!
