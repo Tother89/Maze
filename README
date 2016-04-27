@@ -19,9 +19,7 @@ The wiring for this project is the standard wiring used for the joystick and LCD
 #define TFT_RST  8 // Reset Line for TFT (or connect to +5V)
 
 
-To cover a few things I would like to start off by saying that I did this all own my own without a partner. I had Ross Ying as a partner but he did not contribute whatsoever to this project and I have ended up taking it into my own hands and doing as much as possible by myself the past few days. 
-
-That said, I am please to give you MAZ-O-RAMA the maze where everytime you play its a brand new never before seen maze! Each time you play you get a randomly generated maze. The algorithm for this maze was found on this website:
+I am please to give you MAZ-O-RAMA the maze where everytime you play its a brand new never before seen maze! Each time you play you get a randomly generated maze. The algorithm for this maze was found on this website:
 
 http://weblog.jamisbuck.org/2011/2/1/maze-generation-binary-tree-algorithm
 
